@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
+const chat = require("./models/chat.js");
+const Chat = require('./models/chat.js');
 
-app.use("views", path.join(__dirname ,"views"));
-app.set("view engine" , )
+app.set("views", path.join(__dirname ,"views"));
+app.set("view engine" , "ejs")
 
 main().then(()=>{
     console.log("connection sucessful")
@@ -14,6 +16,16 @@ async function main(){
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }
 
+
+let chart1 = new Chat({
+    from:"neha",
+    to:"madhuri",
+    msg:"send me your exam sheets",
+    created_at: new Date()
+});
+chart1.save().then((res)=>{
+    console.log(res);
+})
 app.get("/" , (req,res)=>{
     console.log("root is working");
 });

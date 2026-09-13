@@ -1,0 +1,22 @@
+*{
+    margin:0.5rem;
+    padding:0.5rem;
+}
+body{
+    width:70%;
+}
+.chat {
+    background-color: aliceblue;
+}
+.msg {
+    background-color: beige;
+}
+.section{
+    display:flex;
+    flex-direction:column;
+    gap:6rem;
+}
+h3{
+    font-size:30px;
+}
+

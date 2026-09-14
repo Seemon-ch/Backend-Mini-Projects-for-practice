@@ -9,6 +9,8 @@ app.set("views", path.join(__dirname ,"views"));
 app.set("view engine" , "ejs")
 app.use(express.static(path.join(__dirname ,"public")));
 
+app.use(express.urlencoded({extended: true})); //when we submit form to add new data we need to parse the data first.
+
 
 main().then(()=>{
     console.log("connection sucessful")
@@ -28,6 +30,23 @@ app.get("/chats",async (req,res)=>{
 //new route
 app.get("/chats/new",(req,res)=>{
     res.render("new.ejs");
+});
+
+//create route
+app.post("/chats",(req,res)=>{
+    let{from,to,msg} = req.body;
+    let newChat = new Chat({
+        from: from,
+        to:to,
+        msg:msg,
+        created_at : new Date()
+    });
+    newChat.save().then( res=> {
+        console.log("Chat is saved");
+    }).catch((err)=>{
+        console.log(err);
+    });
+    res.redirect("/chats");
 });
 
 

@@ -19,4 +19,9 @@ body{
 h3{
     font-size:30px;
 }
+button{
+    border-radius: 0.5rem;
+    background-color: rgb(116, 116, 207);
+    font-weight:600;
+}
 

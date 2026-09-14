@@ -23,11 +23,17 @@ app.get("/chats",async (req,res)=>{
     let chats = await Chat.find();
     console.log(chats);
     res.render("index.ejs",{chats});
-})
+});
+
+//new route
+app.get("/chats/new",(req,res)=>{
+    res.render("new.ejs");
+});
+
 
 
 app.get("/" , (req,res)=>{
-    res.send("root is working");
+    res.send("WELCOME, go to route '/chats' to see all the chats");
 });
 
 app.listen(8080 ,()=>{

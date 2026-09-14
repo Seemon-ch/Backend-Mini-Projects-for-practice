@@ -24,4 +24,6 @@ button{
     background-color: rgb(116, 116, 207);
     font-weight:600;
 }
-
+hr{
+    padding:0;
+}

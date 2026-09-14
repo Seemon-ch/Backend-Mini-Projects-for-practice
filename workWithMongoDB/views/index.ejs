@@ -9,7 +9,7 @@
 <body>
     <h3> All chats </h3>
     <form method="GET" action="/chats/new">
-        <button>NEW CHAT</button>
+        <button> Create NEW CHAT</button>
     </form>
     <% for(let chat  of chats){ %>
         <div class="section">
@@ -17,6 +17,9 @@
                 <p>FROM :<i><%= chat.from %></i> </p>
                 <div class="msg" >
                     <p><%= chat.msg %></p>
+                    <form method="GET" action="/chats/<%= chat._id %>/edit">
+                        <button>EDIT Chat</button>
+                    </form>
                 </div>
                 <p>Received By :<i><%= chat.to %></i></p>
                 <hr>
